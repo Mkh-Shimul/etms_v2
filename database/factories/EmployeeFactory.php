@@ -11,7 +11,7 @@ $factory->define(Employee::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'),
         'photo' => $faker->image(),
-        'type' => random_int(1, 3),
+        'employee_type' => random_int(1, 3),
         'phone_number' => $faker->phoneNumber,
     ];
 });
