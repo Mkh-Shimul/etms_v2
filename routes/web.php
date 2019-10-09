@@ -29,4 +29,6 @@ Route::prefix('admin')->group(function () {
     Route::delete('/delete/{id}', 'AdminController@delete')->name('admin.delete');
     // Bus
     Route::get('/busDetails', 'BusController@index')->name('bus.index');
+    Route::get('/bus/create', 'BusController@create')->name('bus.create');
+    Route::post('/bus/create', 'BusController@store')->name('bus.store');
 });
