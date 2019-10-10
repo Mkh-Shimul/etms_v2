@@ -19,9 +19,9 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Employee</div>
                         @php
-                        $a = DB::table('employees')->count('id');
+                        $emp_count = DB::table('employees')->count('id');
                         @endphp
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$a}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$emp_count}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -38,7 +38,10 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Bus List</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">215</div>
+                        @php
+                        $bus_count = DB::table('buses')->count('id');
+                        @endphp
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$bus_count}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
