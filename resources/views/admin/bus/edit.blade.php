@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-2">
-            <h2 class="text-center">Update Employee Details</h2>
+            <h2 class="text-center">Update Bus Schedule</h2>
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -14,50 +14,55 @@
                 </ul>
             </div>
             @endif
-            <form method="post" action="{{ route('admin.update', $employee->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{route('bus.update', $bus->id)}}" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" name="name" class="form-control" placeholder="Enter your fullname"
-                        value="{{ $employee->name }}">
+                    <label for="number">Bus Number</label>
+                    <input type="text" name="number" class="form-control" placeholder="Enter Bus Number"
+                        value="{{$bus->number}}">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter your email"
-                        value="{{ $employee->email}}">
+                    <label for="bus_from">Startig Place</label>
+                    <input type="text" name="bus_from" class="form-control" placeholder="Enter Bus's Starting Point"
+                        value="{{$bus->bus_from}}">
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="text" name="phone_number" class="form-control" placeholder="Enter your phone"
-                        value="{{ $employee->email}}">
+                    <label for="bus_to">End Place</label>
+                    <input type="text" name="bus_to" class="form-control" placeholder="Enter Bus's Ending Point"
+                        value="{{$bus->bus_to}}">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <label for="starting_time">Starting Time</label>
+                    <input type="time" name="bus_start_time" class="form-control" placeholder="Enter Starting Time"
+                        value="{{$bus->starting_time}}">
                 </div>
                 <div class="form-group">
-                    <label for="employee_type">Employee Type</label>
-                    <select name="employee_type" id="" class="custom-select custom-select-sm">
-                        <option value="1" @if($employee->employee_type === 1) selected @endif>Desk Worker</option>
-                        <option value="2" @if($employee->employee_type === 2) selected @endif>Driver</option>
+                    <label for="reaching_time">Reach Time</label>
+                    <input type="time" name="bus_reach_time" class="form-control"
+                        placeholder="Enter Posible Reaching Time" value="{{$bus->reaching_time}}">
+                </div>
+                <div class="form-group">
+                    <label for="pickup_location">Pickup Location</label>
+                    <input type="text" name="pickup_location" class="form-control" placeholder="Enter Pickup Location"
+                        value="{{$bus->pickup_location}}">
+                </div>
+                <div class="form-group">
+                    <label for="holiday_schedule">Holiday Schedule</label>
+                    <input type="file" name="holy_schedule" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="select driver">Select Driver</label>
+                    <select name="emp_id" id="" class="custom-select custom-select-sm">
+                        @foreach($employees as $employee)
+                        <option @if($bus->emp_id === $employee->id) seleced @endif
+                            value="{{$employee->id}}">{{$employee->name}}
+                        </option>
+                        @endforeach
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="photo">Photo</label>
-                    <input type="file" name="photo" class="form-control">
                 </div>
                 <hr>
-                <div class="form-group">
-                    <label for="employee_designation">Designation</label>
-                    <select name="employee_designation" id="" class="custom-select custom-select-sm">
-                        <option selected>Select type</option>
-                        <option value="1">Jr. Software Engineer</option>
-                        <option value="2">Sr. Software Engineer</option>
-                        <option value="3">Poject Manager</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary btn-block">Update Schedule</button>
             </form>
         </div>
 
