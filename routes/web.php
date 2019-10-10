@@ -31,4 +31,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/busDetails', 'BusController@index')->name('bus.index');
     Route::get('/bus/create', 'BusController@create')->name('bus.create');
     Route::post('/bus/create', 'BusController@store')->name('bus.store');
+    Route::get('/bus/show/{id}', 'BusController@show')->name('bus.show');
+    Route::get('/bus/edit/{id}', 'BusController@edit')->name('bus.edit');
+    Route::patch('/bus/edit/{id}', 'BusController@update')->name('bus.update');
+    Route::delete('/bus/delete/{id}', 'BusController@delete')->name('bus.delete');
 });
