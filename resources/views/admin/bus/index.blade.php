@@ -34,7 +34,7 @@
                         <td>{{$bus->bus_start_time}} - {{$bus->bus_reach_time}}</td>
                         <td>{{$bus->pickup_location}}</td>
                         <td>
-                            <a href="#" class="btn btn-info">Details</a>
+                            <a href="{{route('bus.show', $bus->id)}}" class="btn btn-info">Details</a>
                         </td>
                     </tr>
                     @endforeach
