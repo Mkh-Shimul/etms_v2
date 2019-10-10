@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MOdels\Bus;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator as IlluminateValidator;
 
@@ -10,23 +11,24 @@ class BusController extends Controller
 {
     public function index()
     {
-        return view('admin.bus.index');
+        $data['buses'] = Bus::select('*')->get();
+        return view('admin.bus.index', $data);
     }
 
     public function create()
     {
-        return view('admin.bus.create');
+        $data['employees'] = Employee::select('id', 'name')->get();
+        return view('admin.bus.create', $data);
     }
 
     public function store(Request $request)
     {
-        $time = date('h i A');
         $rules = [
             'number' => 'required',
             'bus_from' => 'required',
             'bus_to' => 'required',
-            // 'bus_start_time' => 'required',
-            // 'bus_reach_time' => 'required',
+            'bus_start_time' => 'required',
+            'bus_reach_time' => 'required',
             'pickup_location' => 'required',
             'emp_id' => 'required',
         ];
@@ -44,12 +46,12 @@ class BusController extends Controller
             'bus_start_time' => $request->input('bus_start_time'),
             'bus_reach_time' => $request->input('bus_reach_time'),
             'pickup_location' => $request->input('pickup_location'),
-            'emp_id' => 'default.png',
+            'emp_id' => $request->input('emp_id'),
         ]);
 
         session()->flash('type', 'success');
         session()->flash('status', 'Employee Created');
 
-        return redirect()->route('admin.bus.index');
+        return redirect()->route('bus.index');
     }
 }
