@@ -26,7 +26,18 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach ($buses as $bus)
+                    <tr>
+                        <td>{{$bus->number}}</td>
+                        <td>{{$bus->bus_from}} - {{$bus->bus_to}}</td>
+                        <td>{{$bus->emp_id}}</td>
+                        <td>{{$bus->bus_start_time}} - {{$bus->bus_reach_time}}</td>
+                        <td>{{$bus->pickup_location}}</td>
+                        <td>
+                            <a href="#" class="btn btn-info">Details</a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
