@@ -19,12 +19,13 @@ class CreateBusesTable extends Migration
             $table->string('number', 64)->unique();
             $table->string('bus_to', 64);
             $table->string('bus_from', 64);
-            $table->dateTimeTz('bus_start_time');
-            $table->dateTimeTz('bus_reach_time');
+            $table->timeTz('bus_start_time');
+            $table->timeTz('bus_reach_time');
             $table->string('pickup_location', 128);
             $table->string('holy_schedule')->nullable();
-            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
+
+            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 
