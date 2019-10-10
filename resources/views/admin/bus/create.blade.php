@@ -48,8 +48,9 @@
                     <label for="select driver">Select Driver</label>
                     <select name="emp_id" id="" class="custom-select custom-select-sm">
                         <option selected>Select type</option>
-                        <option value="1">Driver nameOne</option>
-                        <option value="2">Driver nameTwo</option>
+                        @foreach($employees as $employee)
+                        <option value="{{$employee->id}}">{{$employee->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <hr>
