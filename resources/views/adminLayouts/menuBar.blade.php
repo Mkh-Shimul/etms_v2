@@ -47,8 +47,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Available Options</h6>
-                <a class="collapse-item" href="utilities-color.html">Show List</a>
-                <a class="collapse-item" href="utilities-border.html">Create</a>
+                <a class="collapse-item" href="{{route('bus.index')}}">Show List</a>
+                <a class="collapse-item" href="{{route('bus.create')}}">Create</a>
             </div>
         </div>
     </li>
