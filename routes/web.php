@@ -35,4 +35,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/bus/edit/{id}', 'BusController@edit')->name('bus.edit');
     Route::patch('/bus/edit/{id}', 'BusController@update')->name('bus.update');
     Route::delete('/bus/delete/{id}', 'BusController@delete')->name('bus.delete');
+    // Staff
+    Route::get('/staff', 'StaffController@index')->name('staff.index');
+    Route::get('/staff/create', 'StaffController@create')->name('staff.create');
+    Route::post('/staff/create', 'StaffController@store')->name('staff.store');
 });
