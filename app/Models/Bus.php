@@ -16,7 +16,7 @@ class Bus extends Model
         'number', 'bus_to', 'bus_from', 'bus_start_time', 'bus_reach_time', 'pickup_location', 'emp_id'
     ];
 
-    public function employee()
+    public function employees()
     {
         return $this->belongsTo(Employee::class);
     }
