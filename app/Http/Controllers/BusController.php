@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\MOdels\Bus;
-use App\Models\Employee;
+// use App\Models\Employee;
+use App\Models\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator as IlluminateValidator;
 
@@ -17,7 +18,7 @@ class BusController extends Controller
 
     public function create()
     {
-        $data['employees'] = Employee::select('id', 'name')->get();
+        $data['workers'] = Worker::select('id', 'name')->get();
         return view('admin.bus.create', $data);
     }
 
@@ -30,7 +31,7 @@ class BusController extends Controller
             'bus_start_time' => 'required',
             'bus_reach_time' => 'required',
             'pickup_location' => 'required',
-            'emp_id' => 'required',
+            'worker_id' => 'required',
         ];
 
         $validator = IlluminateValidator::make($request->all(), $rules);
@@ -46,7 +47,7 @@ class BusController extends Controller
             'bus_start_time' => $request->input('bus_start_time'),
             'bus_reach_time' => $request->input('bus_reach_time'),
             'pickup_location' => $request->input('pickup_location'),
-            'emp_id' => $request->input('emp_id'),
+            'worker_id' => $request->input('worker_id'),
         ]);
 
         session()->flash('type', 'success');

@@ -30,7 +30,7 @@
                     <tr>
                         <td>{{$bus->number}}</td>
                         <td>{{$bus->bus_from}} - {{$bus->bus_to}}</td>
-                        <td>{{$bus->emp_id}}</td>
+                        <td>{{$bus->worker_id}}</td>
                         <td>{{$bus->bus_start_time}} - {{$bus->bus_reach_time}}</td>
                         <td>{{$bus->pickup_location}}</td>
                         <td>

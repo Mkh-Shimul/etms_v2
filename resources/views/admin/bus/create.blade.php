@@ -46,10 +46,10 @@
                 </div>
                 <div class="form-group">
                     <label for="select driver">Select Driver</label>
-                    <select name="emp_id" id="" class="custom-select custom-select-sm">
+                    <select name="worker_id" id="" class="custom-select custom-select-sm">
                         <option selected>Select type</option>
-                        @foreach($employees as $employee)
-                        <option value="{{$employee->id}}">{{$employee->name}}</option>
+                        @foreach($workers as $worker)
+                        <option value="{{$worker->id}}">{{$worker->name}}</option>
                         @endforeach
                     </select>
                 </div>

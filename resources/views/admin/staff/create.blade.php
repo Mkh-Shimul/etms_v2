@@ -52,7 +52,7 @@
                     <input type="file" name="photo" class="form-control">
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block">Create Schedule</button>
+                <button type="submit" class="btn btn-primary btn-block">Create Staff</button>
             </form>
         </div>
 

@@ -15,7 +15,7 @@ class CreateBusesTable extends Migration
     {
         Schema::create('buses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('emp_id');
+            $table->unsignedBigInteger('worker_id');
             $table->string('number', 64)->unique();
             $table->string('bus_to', 64);
             $table->string('bus_from', 64);
@@ -25,7 +25,8 @@ class CreateBusesTable extends Migration
             $table->string('holy_schedule')->nullable();
             $table->timestamps();
 
-            $table->foreign('emp_id')->references('id')->on('employees')->onDelete('cascade');
+            // $table->foreign('worker_id')->references('id')->on('workers');
+            $table->index('worker_id');
         });
     }
 

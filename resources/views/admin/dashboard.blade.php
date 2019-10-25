@@ -57,10 +57,13 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Staffs</div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                @php
+                                $staff_count = DB::table('buses')->count('id');
+                                @endphp
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$staff_count}}</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">

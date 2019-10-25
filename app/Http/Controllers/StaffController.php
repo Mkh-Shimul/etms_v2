@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Staff;
+use App\Models\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -10,7 +10,7 @@ class StaffController extends Controller
 {
     public function index()
     {
-        $data['staffs'] = Staff::select('*')->get();
+        $data['staffs'] = Worker::select('*')->get();
         return view('admin.staff.index', $data);
     }
 
@@ -36,7 +36,7 @@ class StaffController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        Staff::create([
+        Worker::create([
             'name' => $request->input('name'),
             'username' => trim($request->input('username')),
             'phone' => $request->input('phone'),
@@ -45,7 +45,7 @@ class StaffController extends Controller
         ]);
 
         session()->flash('type', 'Success');
-        session()->flash('ststus', 'Staff Created Successfully');
+        session()->flash('status', 'Staff Created Successfully');
 
         return redirect()->route('staff.index');
     }

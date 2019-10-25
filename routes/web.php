@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 // -------------------------Admin Routes---------------------------------
 Route::prefix('admin')->group(function () {
-    // Employee
+    // Employees
     Route::get('/login', 'AdminController@login')->name('admin.login');
     Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
     Route::get('/index', 'AdminController@index')->name('admin.index');
@@ -27,7 +27,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/edit/{id}', 'AdminController@edit')->name('admin.edit');
     Route::patch('/edit/{id}', 'AdminController@update')->name('admin.update');
     Route::delete('/delete/{id}', 'AdminController@delete')->name('admin.delete');
-    // Bus
+    // Buses
     Route::get('/busDetails', 'BusController@index')->name('bus.index');
     Route::get('/bus/create', 'BusController@create')->name('bus.create');
     Route::post('/bus/create', 'BusController@store')->name('bus.store');
@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/bus/edit/{id}', 'BusController@edit')->name('bus.edit');
     Route::patch('/bus/edit/{id}', 'BusController@update')->name('bus.update');
     Route::delete('/bus/delete/{id}', 'BusController@delete')->name('bus.delete');
-    // Staff
+    // Workers
     Route::get('/staff', 'StaffController@index')->name('staff.index');
     Route::get('/staff/create', 'StaffController@create')->name('staff.create');
     Route::post('/staff/create', 'StaffController@store')->name('staff.store');

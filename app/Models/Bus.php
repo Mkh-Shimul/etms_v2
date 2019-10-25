@@ -13,7 +13,7 @@ class Bus extends Model
      * @var array
      */
     protected $fillable = [
-        'number', 'bus_to', 'bus_from', 'bus_start_time', 'bus_reach_time', 'pickup_location', 'emp_id'
+        'number', 'bus_to', 'bus_from', 'bus_start_time', 'bus_reach_time', 'pickup_location', 'worker_id'
     ];
 
     public function employees()
