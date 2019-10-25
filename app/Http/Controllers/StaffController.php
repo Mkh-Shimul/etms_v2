@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class StaffController extends Controller
 {
@@ -27,7 +28,7 @@ class StaffController extends Controller
             'phone' => 'required',
             'password' => 'required',
             'staff_type' => 'required',
-            'photo' => 'required'
+            'photo' => 'required|image'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -36,12 +37,20 @@ class StaffController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $photo = $request->file('photo');
+        $file_name = Str::random(5) . '.' . $photo->getClientOriginalExtension();
+
+        if ($photo->isValid()) {
+            $photo->storeAs('image', $file_name);
+        }
+
         Worker::create([
             'name' => $request->input('name'),
             'username' => trim($request->input('username')),
             'phone' => $request->input('phone'),
             'password' => bcrypt($request->input('password')),
             'staff_type' => $request->input('staff_type'),
+            'photo' => $file_name,
         ]);
 
         session()->flash('type', 'Success');
