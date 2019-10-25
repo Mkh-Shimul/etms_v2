@@ -65,7 +65,7 @@ class BusController extends Controller
     public function edit($id)
     {
         $data['bus'] = Bus::select('*')->find($id);
-        $data['employees'] = Employee::select('id', 'name')->get();
+        $data['workers'] = Worker::select('id', 'name')->get();
         return view('admin.bus.edit', $data);
     }
 
@@ -78,7 +78,7 @@ class BusController extends Controller
             'bus_start_time' => 'required',
             'bus_reach_time' => 'required',
             'pickup_location' => 'required',
-            'emp_id' => 'required',
+            'worker_id' => 'required',
         ];
 
         $validator = IlluminateValidator::make($request->all(), $rules);
@@ -95,7 +95,7 @@ class BusController extends Controller
             'bus_start_time' => $request->input('bus_start_time'),
             'bus_reach_time' => $request->input('bus_reach_time'),
             'pickup_location' => $request->input('pickup_location'),
-            'emp_id' => $request->input('emp_id'),
+            'worker_id' => $request->input('worker_id'),
         ]);
 
         session()->flash('type', 'success');
