@@ -19,4 +19,9 @@ class Worker extends Model
         'staff_type',
         'photo'
     ];
+
+    public function buses()
+    {
+        return $this->hasMany(Worker::class);
+    }
 }

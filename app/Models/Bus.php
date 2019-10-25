@@ -2,7 +2,7 @@
 
 namespace App\MOdels;
 
-use App\Models\Employee;
+use App\Models\Worker;
 use Illuminate\Database\Eloquent\Model;
 
 class Bus extends Model
@@ -16,8 +16,8 @@ class Bus extends Model
         'number', 'bus_to', 'bus_from', 'bus_start_time', 'bus_reach_time', 'pickup_location', 'worker_id'
     ];
 
-    public function employees()
+    public function worker()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Worker::class);
     }
 }

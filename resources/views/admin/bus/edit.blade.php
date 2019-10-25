@@ -53,10 +53,10 @@
                 </div>
                 <div class="form-group">
                     <label for="select driver">Select Driver</label>
-                    <select name="emp_id" id="" class="custom-select custom-select-sm">
-                        @foreach($employees as $employee)
-                        <option @if($bus->emp_id === $employee->id) seleced @endif
-                            value="{{$employee->id}}">{{$employee->name}}
+                    <select name="worker_id" id="" class="custom-select custom-select-sm">
+                        @foreach($workers as $woker)
+                        <option @if($bus->emp_id === $woker->id) seleced @endif
+                            value="{{$woker->id}}">{{$woker->name}}
                         </option>
                         @endforeach
                     </select>

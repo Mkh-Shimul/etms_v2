@@ -27,8 +27,15 @@
                     @foreach ($staffs as $staff)
                     <tr>
                         <td>{{$staff->username}}</td>
-                        <td>{{$staff->staff_type}}</td>
-                        <td>{{$staff->photo}}</td>
+                        @if($staff->staff_type == 1)
+                        <td>Driver</td>
+                        @elseif($staff->staff_type == 2)
+                        <td>Cleaner</td>
+                        @elseif($staff->staff_type == 3)
+                        <td>Field Worker</td>
+                        @endif
+                        <td><img src="{{ asset('uploads/image/'.$staff->photo) }}" alt="staff_image" width="100px"
+                                height="100px"></td>
                         <td>
                             <a href="#"><i class="fa fa-edit fa-lg" aria-hidden="true"></i>
                             </a>

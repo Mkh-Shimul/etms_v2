@@ -8,7 +8,7 @@
         <hr>
         <h3 class="p-2">Route: {{$bus->bus_from}} - {{$bus->bus_to}}</h3>
         <hr>
-        <h3 class="p-2">Bus Driver : {{$bus->emp_id}}</h3>
+        <h3 class="p-2">Bus Driver : {{$bus->worker->name}}</h3>
     </div>
 
     <div class="d-flex">

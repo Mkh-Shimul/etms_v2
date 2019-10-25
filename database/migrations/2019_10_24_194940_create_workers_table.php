@@ -20,7 +20,7 @@ class CreateWorkersTable extends Migration
             $table->string('phone', 64);
             $table->string('password', 128);
             $table->string('staff_type');
-            $table->string('photo')->default('default.png');
+            $table->string('photo');
             $table->timestamps();
         });
     }

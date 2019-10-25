@@ -87,9 +87,10 @@
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fa fa-code"></i>
-            <span>Logout</span></a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt"></i>
+            Logout
+        </a>
     </li>
 
     <!-- Divider -->
