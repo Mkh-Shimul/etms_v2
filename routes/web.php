@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // -------------------------Admin Routes---------------------------------
 Route::prefix('admin')->group(function () {
     // Employees
@@ -40,3 +41,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/staff/create', 'StaffController@create')->name('staff.create');
     Route::post('/staff/create', 'StaffController@store')->name('staff.store');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
